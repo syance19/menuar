@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, NavLink, useHistory } from 'react-router-dom'
 import { AuthContext } from '../../auth/AuthContext'
 import { types } from '../../types/types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Navbar = () => {
 
@@ -16,6 +17,9 @@ export const Navbar = () => {
 
         })
     }
+    const backToMenu = () => {
+
+    }
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 
@@ -29,11 +33,11 @@ export const Navbar = () => {
             <div className="navbar-collapse">
                 <div className="navbar-nav">
 
-                    <NavLink
+                    {/* <NavLink
                         activeClassName="active"
                         className="nav-item nav-link"
                         exact
-                        to="/marvel"
+                        to="/sushi"
                     >
                         Tablas de sushi
                     </NavLink>
@@ -45,7 +49,7 @@ export const Navbar = () => {
                         to="/dc"
                     >
                         Pizzas
-                    </NavLink>
+                    </NavLink> */}
                     {/* <NavLink
                         activeClassName="active"
                         className="nav-item nav-link"
@@ -57,22 +61,24 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            {/* <div className="navbar-collapse collapse w-100 order-5 dual-collapse2">
+            <div className="navbar-collapse collapse w-100 order-5 dual-collapse2">
                 <ul className="navbar-nav ml-auto">
-                    <span
+                    {/* <span
                         className="nav-item nav-link text-info"
                     >
                         {name}
-                    </span>
-                    <button
-
-                        className="nav-item nav-link btn"
-                        onClick={handleLogout}
+                    </span> */}
+                    <NavLink
+                        activeClassName="active"
+                        className="nav-item nav-link"
+                        exact
+                        to=''
                     >
-                        Logout
-                    </button>
+                        
+                    </NavLink>
+                    
                 </ul>
-            </div> */}
+            </div>
         </nav>
     )
 }

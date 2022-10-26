@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { DcScreen } from '../components/dc/DcScreen'
 import { HeroScreen } from '../components/heroes/HeroScreen'
 import { Marvel } from '../components/marvel/MarvelScreen'
+import { MenuScreen } from '../components/menu/MenuScreen'
 import { SearchScreen } from '../components/search/SearchScreen'
 import {Navbar} from '../components/ui/NavBar'
 export const DashboardRoutes = () => {
@@ -16,7 +17,8 @@ export const DashboardRoutes = () => {
                     <Route exact path="/dc" component={DcScreen}/>
                     <Route exact path="/search" component={SearchScreen}/>
                     <Route exact path="/sushi" component={Marvel}/>
-                    <Redirect to="/sushi"/>
+                    <Route exact path="/menu" component={MenuScreen}/>
+                    <Redirect to="/menu"/>
                 </Switch>
             </div>
         </>
