@@ -7,7 +7,8 @@ import { MenuCard } from './MenuCard'
 export const MenuScreen = () => {
     return (
         <Fragment>
-            <div className="animate__animated animate__fadeIn">
+            <br/>
+            <div className="row row-cols-1 row-cols-md-3 g-4 animate__animated animate__fadeIn">
             {
                 menu.map(menu => (
                     <MenuCard

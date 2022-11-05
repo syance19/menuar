@@ -1,3 +1,7 @@
+:root {
+     --check-color: rgb(42, 199, 42);
+ }
+
 .my-card {
     min-width: 260px;
     max-width: 300px;
@@ -10,9 +14,10 @@
     cursor: pointer;
     display: inline-block;
 }
+
 .my-card-menu {
     min-width: 260px;
-    max-width: 500px;
+    max-width: 300px;
     max-height: 70vh;
     border-radius: 10px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
@@ -22,12 +27,36 @@
     cursor: pointer;
     display: inline-block;
 }
+
 .my-card img {
     transition: all 0.15s linear;
     position: relative;
-    top: -10%;
-    left: -35%;
+    top: 0%;
+    left: 0%;
     filter: brightness(70%);
+    width: 100%;
+    height: 100%;
+}
+
+.my-card-menu img {
+    transition: all 0.15s linear;
+    position: relative;
+    top: 0%;
+    left: -2%;
+    filter: brightness(70%);
+    width: 105%;
+    height: 100%;
+}
+
+.my-card-menu .profile-name {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    padding: 15px 20px;
+    transition: all 0.15s linear;
 }
 
 .my-card .profile-name {
@@ -49,7 +78,26 @@
     transition: all 0.15s linear;
 }
 
+.my-card-menu .profile-position {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.596);
+    left: 30px;
+    top: 60px;
+    transition: all 0.15s linear;
+}
+
 .my-card .profile-overview {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
+    color: #FFF;
+    padding: 50px 0px 40px 0px;
+    transition: all 0.15s linear;
+}
+
+.my-card-menu .profile-overview {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -66,7 +114,19 @@
     padding-left: 25px;
 }
 
+.my-card-menu .profile-overview h3 {
+    font-weight: bold;
+    font-size: large;
+    padding-left: 25px;
+}
+
 .my-card .profile-overview p {
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.my-card-menu .profile-overview p {
     color: rgba(255, 255, 255, 0.7);
     padding-left: 25px;
     padding-right: 25px;
@@ -76,7 +136,15 @@
     padding-left: 25px;
 }
 
+.my-card-menu:hover .profile-name {
+    padding-left: 25px;
+}
+
 .my-card:hover .profile-position {
+    left: 40px;
+}
+
+.my-card-menu:hover .profile-position {
     left: 40px;
 }
 
@@ -84,10 +152,62 @@
     padding-bottom: 25px;
 }
 
+.my-card-menu:hover .profile-overview {
+    padding-bottom: 25px;
+}
+
 .my-card img:hover {
     transform: scale(1.01);
 }
 
+.my-card-menu img:hover {
+    transform: scale(1.01);
+}
+.flex_middle {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.communication .whatsapp-card {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    width: 300px;
+    min-height: 400px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 0.5em;
+  }
+  .communication .whatsapp-card .title {
+    color: var(--check-color);
+    font-size: 1.4em;
+    margin-top: 0.5em;
+  }
+  .communication .whatsapp-card .search_contact_whatsapp {
+    width: 95%;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    column-gap: 1em;
+    margin: 1em 0;
+  }
+  
+  .communication .whatsapp-card .search_contact_whatsapp .add_new_client {
+    margin-top: 0.5em;
+    color: var(--grey-color);
+    cursor: pointer;
+  }
+  .creator-link a {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 2.2em;
+    color: var(--grey-color);
+    font-family: 'Comfortaa', cursive;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .creator-link a:hover {
+    color: var(--aunsh-website-color);
+  }  
 #card {
     margin: 3em auto;
     display: flex;

@@ -1,7 +1,14 @@
 export const menu=[
     {
-        'id':'tienda1',
-        'nombre': 'Nombre tienda',
-        'idProd': 'dc'//pizzas
-    }
+        'id':'logo',
+        'nombre': '',
+        'idProd': 'platanoEntero'//pizzas
+    },
+    {
+        'id':'more',
+        'nombre': 'Agregar tienda',
+        'idProd': ''//pizzas
+    },
+ 
+   
 ]

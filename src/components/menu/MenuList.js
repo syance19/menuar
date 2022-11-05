@@ -10,7 +10,8 @@ export const MenuCard = ({ publisher }) => {
     const menu= useMemo(()=>getTiendas(publisher), [publisher])
 
     return (
-        <div className="row row-cols-1 row-cols-md-3 g-4 animate__animated animate__fadeIn">
+        <Fragment>
+        {/* <div className="row row-cols-1 row-cols-md-3 g-4 animate__animated animate__fadeIn">
             {
                 menu.map(menu => (
                     <MenuCard
@@ -19,6 +20,7 @@ export const MenuCard = ({ publisher }) => {
                     />
                 ))
             }
-        </div>
+        </div> */}  
+        </Fragment>
     )
 }

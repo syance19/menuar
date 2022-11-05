@@ -10,6 +10,11 @@ export const Navbar = () => {
 
     const history = useHistory();
 
+    let isInASotre = false;
+    let route = localStorage.getItem('test');
+    let lastRoute = localStorage.getItem('lastPaht');
+
+
     const handleLogout = () => {
         history.replace('/login')
         dispatch({
@@ -17,9 +22,14 @@ export const Navbar = () => {
 
         })
     }
-    const backToMenu = () => {
 
-    }
+    console.log(route);
+    console.log(lastRoute);
+
+
+
+
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 
@@ -33,23 +43,38 @@ export const Navbar = () => {
             <div className="navbar-collapse">
                 <div className="navbar-nav">
 
-                    {/* <NavLink
+                    {lastRoute === '/menu' ? <NavLink
                         activeClassName="active"
                         className="nav-item nav-link"
                         exact
-                        to="/sushi"
-                    >
-                        Tablas de sushi
-                    </NavLink>
+                        to="/"
 
-                    <NavLink
+                    >
+                        Plátano en rodajas
+                    </NavLink> : <NavLink
                         activeClassName="active"
                         className="nav-item nav-link"
                         exact
-                        to="/dc"
+                        to='/platanoRodajas'
                     >
-                        Pizzas
-                    </NavLink> */}
+                        Plátano en rodajas
+                    </NavLink>}
+                    {lastRoute === '/menu' ? <NavLink
+                        activeClassName="active"
+                        className="nav-item nav-link"
+                        exact
+                        to='/'
+                    >
+                        Plátano entero
+
+                    </NavLink> : <NavLink
+                        activeClassName="active"
+                        className="nav-item nav-link"
+                        exact
+                        to='/platanoEntero'
+                    >
+                        Plátano entero
+                    </NavLink>}
                     {/* <NavLink
                         activeClassName="active"
                         className="nav-item nav-link"
@@ -74,9 +99,9 @@ export const Navbar = () => {
                         exact
                         to=''
                     >
-                        
+
                     </NavLink>
-                    
+
                 </ul>
             </div>
         </nav>

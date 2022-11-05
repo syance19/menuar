@@ -1,14 +1,25 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Redirect, useParams } from 'react-router-dom'
 import { Fragment } from 'react/cjs/react.production.min';
 import { getHeroesById } from '../../selectors/getHeroById';
+import SendMessages from "../SendMessage";
+import Footer from "../layout/Footer";
+import CreatorLink from "../layout/CreatorLink";
 
+let itemToEdit = 0;
 export const HeroScreen = ({ history }) => {
-
+    const [count, setCount] = useState(0);
     const { heroeId } = useParams();
-
     const hero = useMemo(() => getHeroesById(heroeId), [heroeId]);
-
+    itemToEdit = 0;
+    const decrementCount = () => {
+        if (count > 0) setCount(count - 1);
+        itemToEdit={count};
+    };
+    const incrementCount = () => {
+        setCount(count + 1);;
+        itemToEdit={count};
+    };
     if (!hero) {
         return <Redirect to="/" />
     }
@@ -28,16 +39,19 @@ export const HeroScreen = ({ history }) => {
         alter_ego,
         first_appearance,
         characters,
-        descripcion
+        descripcion,
+        descripcion2,
+        descripcion3,
+        descripcion4
     } = hero;
-
-
+    localStorage.setItem('cantidad',count);
+    console.log(localStorage.getItem('cantidad'));
     return (
         <Fragment>
             <div className="row mt-5">
                 <div className="col-4">
                     <img
-                        src={`/assets/heroes/${hero.idInfo}.png`}
+                        src={`/assets/heroes/${hero.idInfo}.jpg`}
                         alt={superhero}
                         className="img-thumbnail animate__animated  animate__fadeInLeft"
                     ></img>
@@ -46,35 +60,56 @@ export const HeroScreen = ({ history }) => {
                     <h3>{superhero}</h3>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <b>Producto</b>
+                            <b>Producto:</b> &nbsp;
                             {alter_ego}
                         </li>
                         <li className="list-group-item">
-                            <b>Descripción</b>
+                            <b>Peso:</b> &nbsp;
                             {descripcion}
                         </li>
                         <li className="list-group-item">
-                            <b>Precio</b>
+                            <b>Características:</b> &nbsp;
+                            <br />
+                            {descripcion2}
+                            <br />
+                            {descripcion3}
+                            <br />
+                            {descripcion4}
+
+                        </li>
+                        <li className="list-group-item">
+                            <b>Precio:</b> &nbsp;
                             {first_appearance}
                         </li>
                     </ul>
-                    <h5>Sabores</h5>
-                    <p>{characters}</p>
                     <button
                         className="btn btn-outline-info"
                         onClick={handleReturn}
                     >
                         Volver al menú
                     </button>
+                    &nbsp;&nbsp;
+                    <h3>Cantidad</h3>
+                    <button onClick={decrementCount}>-1</button>
+                    <input
+                        type="number"
+                        name="clicks"
+                        value={count}
+                        onChange={(event) => {
+                            const value = Number(event.target.value);
+                            setCount(value);
+                        }}
+                    />
+                    <button onClick={incrementCount}>+1</button>
+
                 </div>
+
             </div>
-            <div id="card">
-                <model-viewer
-                    src={myArray[1]}
-                    ar ar-modes="scene-viewer webxr quick-look"
-                    camera-controls poster="poster.webp"
-                    shadow-intensity="1"
-                    auto-rotate />
+
+
+            <div style={{ width: "100vw", height: "100vh" }} className='flex_middle'>
+                <CreatorLink />
+                <SendMessages itemToEdit />
             </div>
         </Fragment>
     )
